@@ -1,0 +1,41 @@
+extends layout
+
+block content
+    //- Defining Variables
+    - activityAccessibility = activity['accessibility']
+    - activityType = activity['type']
+    - activityParticipants = activity['participants']
+    - activityPrice = activity['price']
+    - activityURL = activity['link']
+    - quoteText = quote['en']
+    - quoteAuthor = quote['author']
+
+    //- Actual Content
+    nav.navbar.navbar-dark.bg-dark.justify-content-center
+        .navbar-brand Random APIs
+    .container
+        .row
+            .col-12.col-md-6.mt-5
+                .card.mx-auto(style='width: 18rem;')
+                    .card-body
+                        h5.card-title Bored?
+                        p.card-text #{activity['activity']}
+                    ul.list-group.list-group-flush
+                        if activityAccessibility
+                            li.list-group-item Accessibility: #{activityAccessibility}
+                        if activityType
+                            li.list-group-item Type: #{activityType}
+                        if activityParticipants
+                            li.list-group-item Participants: #{activityParticipants}
+                        if activityPrice
+                            li.list-group-item Price: #{activityPrice}
+                    if activityURL
+                        .card-body
+                            a.card-link(href=activityURL) Reference
+            .col-12.col-md-6.my-5
+                .h2.font-weight-light.mb-3 A Programming Quote
+                .media
+                    img.align-self-center.mr-3(src='//thispersondoesnotexist.com/image', alt='Profile', style='max-width: 75px; border-radius: 50%;')
+                    .media-body
+                        h5.mt-0 #{quoteAuthor}
+                        p.mb-0 #{quoteText}
