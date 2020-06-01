@@ -4,22 +4,17 @@ const express = require('express');
 const router = express.Router();
 
 // GET homepage
-router.get('/', function (req, res) {
+router.get('/', (req, res) => {
     // Initializing variables
     let activityData, quoteData;
 
     // Defining functions
-    function getActivity() {
-        return axios.get('https://www.boredapi.com/api/activity/');
-    }
-
-    function getQuote() {
-        return axios.get('https://programming-quotes-api.herokuapp.com/quotes/random');
-    }
+    const getActivity = () => axios.get('https://www.boredapi.com/api/activity/');
+    const getQuote = () => axios.get('https://programming-quotes-api.herokuapp.com/quotes/random');
 
     // Getting the data from APIs
     Promise.all([getActivity(), getQuote()])
-        .then(function (results) {
+        .then(results => {
             activityData = results[0].data;
             quoteData = results[1].data;
 

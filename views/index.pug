@@ -16,7 +16,7 @@ block content
     .container
         .row
             .col-12.col-md-6.mt-5
-                .card.mx-auto(style='width: 18rem;')
+                .card.bg-light.mx-auto(style='width: 18rem;')
                     .card-body
                         h5.card-title Bored?
                         p.card-text #{activity['activity']}
@@ -32,7 +32,7 @@ block content
                     if activityURL
                         .card-body
                             a.card-link(href=activityURL) Reference
-            .col-12.col-md-6.my-5
+            .col-12.col-md-6.my-5.text-white
                 .h2.font-weight-light.mb-3 A Programming Quote
                 .media
                     img.align-self-center.mr-3(src='//thispersondoesnotexist.com/image', alt='Profile', style='max-width: 75px; border-radius: 50%;')
